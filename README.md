@@ -61,3 +61,13 @@ Example for Github OAuth2:
 - **Name Key**: `name`
 - **Email Key**: `email`
 - **User ID Key**: `id`
+
+Example for Salesforce:
+
+- **Authorize URL**: `https://login.salesforce.com/services/oauth2/authorize`
+- **Token URL**: `https://login.salesforce.com/services/oauth2/token`
+- **User API URL**: `https://login.salesforce.com/services/oauth2/userinfo`
+- **Username Key**: `nickname`
+- **Name Key**: `name`
+- **Email Key**: `email`
+- **User ID Key**: `user_id`
