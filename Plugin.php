@@ -45,12 +45,17 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.0.0';
+        return '1.0.1';
     }
 
     public function getPluginHomepage()
     {
         return 'https://github.com/kanboard/plugin-oauth2';
+    }
+
+    public function getCompatibleVersion()
+    {
+        return '>=1.0.37';
     }
 }
 

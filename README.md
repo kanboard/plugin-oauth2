@@ -14,7 +14,7 @@ Author
 Requirements
 ------------
 
-- Kanboard >= 1.0.34
+- Kanboard >= 1.0.37
 
 Installation
 ------------
@@ -51,6 +51,9 @@ Copy those values in the Kanboard's settings.
 - **Name Key**: Key used to fetch the full name
 - **Email Key**: Key used to fetch the user email
 - **User ID Key**: Key used to fetch the unique user ID
+
+Examples
+--------
 
 Example for Github OAuth2:
 
