@@ -18,6 +18,9 @@
     <?= $this->form->label(t('User API URL'), 'oauth2_user_api_url') ?>
     <?= $this->form->text('oauth2_user_api_url', $values) ?>
 
+    <?= $this->form->label(t('Scopes'), 'oauth2_scopes') ?>
+    <?= $this->form->text('oauth2_scopes', $values) ?>
+
     <?= $this->form->label(t('Username Key'), 'oauth2_key_username') ?>
     <?= $this->form->text('oauth2_key_username', $values) ?>
 
