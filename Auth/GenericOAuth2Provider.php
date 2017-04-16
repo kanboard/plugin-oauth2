@@ -106,7 +106,7 @@ class GenericOAuth2Provider extends Base implements OAuthAuthenticationProviderI
                 $this->helper->url->to('OAuthController', 'handler', array('plugin' => 'OAuth2'), '', true),
                 $this->getOAuthAuthorizeUrl(),
                 $this->getOAuthTokenUrl(),
-                array()
+                $this->getScopes()
             );
         }
 
@@ -159,6 +159,18 @@ class GenericOAuth2Provider extends Base implements OAuthAuthenticationProviderI
     {
         return $this->configModel->get('oauth2_client_id');
     }
+
+    /**
+     * Get scopes
+     *
+     * @access public
+     * @return array
+     */
+    public function getScopes()
+    {
+        return explode(" ", $this->configModel->get('oauth2_scopes'));
+    }
+
 
     /**
      * Get client secret
