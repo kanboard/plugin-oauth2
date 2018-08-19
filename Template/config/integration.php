@@ -40,6 +40,10 @@
     <?= $this->form->text('oauth2_email_domains', $values) ?>
     <p class="form-help"><?= t('Use a comma to enter multiple domains: domain1.tld, domain2.tld') ?></p>
 
+    <?= $this->form->label(t('Groups Key'), 'oauth2_key_groups') ?>
+    <?= $this->form->text('oauth2_key_groups', $values) ?>
+    <p class="form-help"><?= t('Leave empty, when no group mapping is wanted') ?></p>
+
     <div class="form-actions">
         <input type="submit" value="<?= t('Save') ?>" class="btn btn-blue"/>
     </div>
