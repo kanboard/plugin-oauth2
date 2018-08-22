@@ -157,7 +157,21 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
      */
     public function getExternalGroupIds()
     {
-        return array();
+        $groups = $this->getKey('oauth2_key_groups');
+
+        if (empty($groups)) {
+            $this->logger->debug('OAuth2: '.$this->getUsername().' has no groups');
+            return array();
+        }
+
+        $groups = array_unique($groups);
+        $this->logger->debug('OAuth2: '.$this->getUsername().' groups are '. join(',', $groups));
+
+        foreach ($groups as $group) {
+            $this->groupModel->getOrCreateExternalGroupId($group, $group);
+        }
+
+        return $groups;
     }
 
     /**
