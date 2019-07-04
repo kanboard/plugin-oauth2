@@ -3,6 +3,10 @@ sudo: false
 notifications:
   email: false
 
+services:
+  - postgresql
+  - mysql
+
 php:
   - 7.1
   - 7.0
@@ -31,4 +35,4 @@ before_script:
   - ls -la plugins/
 
 script:
-  - phpunit -c tests/units.$DB.xml plugins/$PLUGIN/Test/
+  - ./vendor/bin/phpunit -c tests/units.$DB.xml plugins/$PLUGIN/Test/
