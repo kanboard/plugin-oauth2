@@ -1,8 +1,6 @@
 OAuth2 Authentication
 =====================
 
-[![Build Status](https://travis-ci.org/kanboard/plugin-oauth2.svg?branch=master)](https://travis-ci.org/kanboard/plugin-oauth2)
-
 Generic OAuth2 authentication plugin.
 
 Author
