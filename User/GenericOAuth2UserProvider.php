@@ -153,14 +153,13 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
      * @param string $group
      * @return boolean
      */
-    protected function isGroupInFilter(string $group) 
+    protected function isGroupInFilter(string $group, array $filter) 
     {
-        if (empty($this->configModel->get('oauth2_key_group_filter'))) {
+        if (empty($filter)) {
             $this->logger->debug('OAuth2: No group specified in filter. All provided groups will be used.');
             return true;
         } else {
-            $groupFilter = explode(',',$this->configModel->get('oauth2_key_group_filter'));
-            if (in_array($group, $groupFilter)) {
+            if (in_array($group, $filter)) {
                 return true;
             } else {
                 return false;
@@ -196,9 +195,10 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
         $this->logger->debug('OAuth2: '.$this->getUsername().' groups are '. join(',', $groups));
 
         $filteredGroups = array();
+        $groupFilter = explode(',',$this->configModel->get('oauth2_key_group_filter'));
 
         foreach ($groups as $group) {
-            if ( $this->isGroupInFilter($group) ) {
+            if ( $this->isGroupInFilter($group $filter) ) {
                 $this->groupModel->getOrCreateExternalGroupId($group, $group);
                 array_push($filteredGroups, $group);
             } else {
