@@ -198,7 +198,7 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
         $groupFilter = explode(',',$this->configModel->get('oauth2_key_group_filter'));
 
         foreach ($groups as $group) {
-            if ( $this->isGroupInFilter($group $filter) ) {
+            if ( $this->isGroupInFilter($group, $groupFilter)) {
                 $this->groupModel->getOrCreateExternalGroupId($group, $group);
                 array_push($filteredGroups, $group);
             } else {
