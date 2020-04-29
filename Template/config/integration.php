@@ -44,6 +44,10 @@
     <?= $this->form->text('oauth2_key_groups', $values) ?>
     <p class="form-help"><?= t('Leave empty, when no group mapping is wanted') ?></p>
 
+    <?= $this->form->label(t('Group Filter'), 'oauth2_key_group_filter') ?>
+    <?= $this->form->text('oauth2_key_group_filter', $values) ?>
+    <p class="form-help"><?= t('Use a comma to enter multiple useable groups: group1,group2') ?></p>
+
     <div class="form-actions">
         <input type="submit" value="<?= t('Save') ?>" class="btn btn-blue"/>
     </div>
