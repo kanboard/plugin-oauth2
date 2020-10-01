@@ -16,7 +16,9 @@ class Plugin extends Base
 
         $this->route->addRoute('/oauth/callback', 'OAuthController', 'handler', 'OAuth2');
 
-        $this->template->hook->attach('template:auth:login-form:after', 'OAuth2:auth/login');
+        $this->template->hook->attach('template:auth:login-form:after', 'OAuth2:auth/login', [
+            'oauth2_custom_login_text' => $this->configModel->get('oauth2_custom_login_text'),
+        ]);
         $this->template->hook->attach('template:config:integrations', 'OAuth2:config/integration');
         $this->template->hook->attach('template:user:external', 'OAuth2:user/external');
         $this->template->hook->attach('template:user:authentication:form', 'OAuth2:user/authentication');

@@ -48,6 +48,10 @@
     <?= $this->form->text('oauth2_key_group_filter', $values) ?>
     <p class="form-help"><?= t('Use a comma to enter multiple useable groups: group1,group2') ?></p>
 
+    <?= $this->form->label(t('Custom Login Text'), 'oauth2_custom_login_text') ?>
+    <?= $this->form->text('oauth2_custom_login_text', $values) ?>
+    <p class="form-help"><?= t('Enter the text you would prefer to see rather than the default "OAuth2 login".') ?></p>
+
     <div class="form-actions">
         <input type="submit" value="<?= t('Save') ?>" class="btn btn-blue"/>
     </div>
