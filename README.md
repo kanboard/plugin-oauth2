@@ -72,3 +72,14 @@ Example for Salesforce:
 - **Name Key**: `name`
 - **Email Key**: `email`
 - **User ID Key**: `user_id`
+
+Example for Discord:
+
+- **Authorize URL**: `https://discord.com/api/oauth2/authorize`
+- **Token URL**: `https://discord.com/api/oauth2/token`
+- **User API URL**: `https://discordapp.com/api/users/@me`
+- **Scopes**: `email identify`
+- **Username Key**: `username`
+- **Name Key**: `username`
+- **Email Key**: `email`
+- **User ID Key**: `id`
