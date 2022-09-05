@@ -83,3 +83,14 @@ Example for Discord:
 - **Name Key**: `username`
 - **Email Key**: `email`
 - **User ID Key**: `id`
+
+Example for Gitea:
+
+- **Authorize URL**: `https://try.gitea.io/login/oauth/authorize`
+- **Token URL**: `https://try.gitea.io/login/oauth/access_token`
+- **User API URL**: `https://try.gitea.io/login/oauth/userinfo`
+- **Scopes**: `openid profile email groups`
+- **Username Key**: `preferred_username`
+- **Name Key**: `name`
+- **Email Key**: `email`
+- **User ID Key**: `sub`
