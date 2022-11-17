@@ -28,6 +28,8 @@ Note: Plugin folder is case-sensitive.
 Configuration
 -------------
 
+> **Note:** Also works with most OpenID Providers
+
 Go to the application settings > integrations > OAuth2 Authentication.
 
 ### 1) Create a new application on the OAuth2 provider
@@ -91,6 +93,17 @@ Example for Gitea:
 - **User API URL**: `https://try.gitea.io/login/oauth/userinfo`
 - **Scopes**: `openid profile email groups`
 - **Username Key**: `preferred_username`
+- **Name Key**: `name`
+- **Email Key**: `email`
+- **User ID Key**: `sub`
+
+Example for Slack:
+
+- **Authorize URL**: `https://slack.com/openid/connect/authorize`
+- **Token URL**: `https://slack.com/api/openid.connect.token`
+- **User API URL**: `https://slack.com/api/openid.connect.userInfo`
+- **Scopes**: `openid profile email`
+- **Username Key**: `name`
 - **Name Key**: `name`
 - **Email Key**: `email`
 - **User ID Key**: `sub`
