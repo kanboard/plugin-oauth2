@@ -180,8 +180,23 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
     {
         $key = 'oauth2_key_groups';
         
+        $filteredGroups = array();
+        
+        // Fixed custom groups
+        $custom_groups = array();
+        $custom_groups_raw = $this->configModel->get('oauth2_custom_group');
+        if (!empty($custom_groups_raw)) {
+            $custom_groups = explode(',', $custom_groups_raw);
+            $custom_groups = array_map('trim', $custom_groups);
+        }
+        foreach ($custom_groups as $group) {
+            $this->groupModel->getOrCreateExternalGroupId($group, $group);
+            array_push($filteredGroups, $group);
+        }
+
+
         if (empty($this->configModel->get($key))) {
-            return array();
+            return $filteredGroups;
         }
         
         $groups = $this->getKey($key);
@@ -194,7 +209,6 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
         $groups = array_unique($groups);
         $this->logger->debug('OAuth2: '.$this->getUsername().' groups are '. join(',', $groups));
 
-        $filteredGroups = array();
         $groupFilter = array();
 
         $confGroupFilter = $this->configModel->get('oauth2_key_group_filter');
