@@ -107,3 +107,14 @@ Example for Slack:
 - **Name Key**: `name`
 - **Email Key**: `email`
 - **User ID Key**: `sub`
+
+Example for Azure AD (find the URLs with proper UUIDs in your Azure app page):
+
+- **Authorize URL**: `https://login.microsoftonline.com/<UUID>/oauth2/v2.0/authorize`
+- **Token URL**: `https://login.microsoftonline.com/<UUID>/oauth2/v2.0/token`
+- **User API URL**: `https://graph.microsoft.com/beta/me`
+- **Scopes**: `User.Read`
+- **Username Key**: `userPrincipalName`
+- **Name Key**: `displayName`
+- **Email Key**: `mail`
+- **User ID Key**: `id`
