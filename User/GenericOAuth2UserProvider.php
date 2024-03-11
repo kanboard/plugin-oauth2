@@ -206,6 +206,10 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
             return array();
         }
 
+        if(!is_array($groups)) {
+            $groups = array($groups);
+        }
+
         $groups = array_unique($groups);
         $this->logger->debug('OAuth2: '.$this->getUsername().' groups are '. join(',', $groups));
 
