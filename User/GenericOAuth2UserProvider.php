@@ -274,11 +274,21 @@ class GenericOAuth2UserProvider extends Base implements UserProviderInterface
 
     protected function getKey($key)
     {
-        $key   = explode('.', $this->configModel->get($key));
-        $value = $this->userData;
-        foreach ($key as $k) {
-            $value = $value[$k];
+        if($this->configModel->get('oauth2_split_keys') == 1) {
+            $key   = explode('.', $this->configModel->get($key));
+            $value = $this->userData;
+            foreach ($key as $k) {
+                $value = $value[$k];
+            }
+            return ! empty($key) && isset($value) ? $value : '';
+        } else {
+            $key = $this->configModel->get($key);
+            if(empty($key)) {
+                return '';
+            }
+
+            $value = $this->userData[$key];
+            return isset($value) ? $value : '';
         }
-        return ! empty($key) && isset($value) ? $value : '';
     }
 }
