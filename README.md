@@ -118,3 +118,14 @@ Example for Azure AD (find the URLs with proper UUIDs in your Azure app page):
 - **Name Key**: `displayName`
 - **Email Key**: `mail`
 - **User ID Key**: `id`
+
+Example for self-hosted Authentik:
+
+- **Authorize URL**: `https://auth.domain.tld/application/o/authorize/`
+- **Token URL**: `https://auth.domain.tld/application/o/token/`
+- **User API URL**: `https://auth.domain.tld/application/o/userinfo/`
+- **Scopes**: `openid profile email`
+- **Username Key**: `preferred_username`
+- **Name Key**: `name`
+- **Email Key**: `email`
+- **User ID Key**: `sub`
