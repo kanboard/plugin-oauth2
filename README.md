@@ -52,6 +52,14 @@ Copy those values in the Kanboard's settings.
 - **Email Key**: Key used to fetch the user email
 - **User ID Key**: Key used to fetch the unique user ID
 
+Notes
+-----
+
+If "Allow Account Creation" checkbox is checked, anyone who goes to the login page, clicks the
+"OAuth2 Login" link, and correctly validates with your Oauth2 backend will automatically have 
+their account created. No need to create the user in Kanboard or to use the "Invite people" 
+link in the users area.
+
 Examples
 --------
 
@@ -112,7 +120,7 @@ Example for Azure AD (find the URLs with proper UUIDs in your Azure app page):
 
 - **Authorize URL**: `https://login.microsoftonline.com/<UUID>/oauth2/v2.0/authorize`
 - **Token URL**: `https://login.microsoftonline.com/<UUID>/oauth2/v2.0/token`
-- **User API URL**: `https://graph.microsoft.com/beta/me`
+- **User API URL**: `https://graph.microsoft.com/v1.0/me`
 - **Scopes**: `User.Read`
 - **Username Key**: `userPrincipalName`
 - **Name Key**: `displayName`
