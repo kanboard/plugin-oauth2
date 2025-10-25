@@ -1,5 +1,7 @@
 <?php
 
+namespace KanboardTests\units;
+
 require_once 'tests/units/Base.php';
 
 use Kanboard\Plugin\OAuth2\Plugin;
