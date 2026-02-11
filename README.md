@@ -137,3 +137,14 @@ Example for self-hosted Authentik:
 - **Name Key**: `name`
 - **Email Key**: `email`
 - **User ID Key**: `sub`
+
+Example for Keycloak:
+
+- **Authorize URL**: `https://keycloak.domain.tld/realms/<your-realm>/protocol/openid-connect/auth`
+- **Token URL**: `https://keycloak.domain.tld/realms/<your-realm>/protocol/openid-connect/token`
+- **User API URL**: `https://keycloak.domain.tld/realms/<your-realm>/protocol/openid-connect/userinfo`
+- **Scopes**: `openid profile email`
+- **Username Key**: `preferred_username`
+- **Name Key**: `name`
+- **Email Key**: `email`
+- **User ID Key**: `sub`
