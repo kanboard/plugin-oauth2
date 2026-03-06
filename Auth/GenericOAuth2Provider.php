@@ -61,6 +61,27 @@ class GenericOAuth2Provider extends Base implements OAuthAuthenticationProviderI
 
         if (! empty($profile)) {
             $this->userInfo = new GenericOAuth2UserProvider($this->container, $profile);
+
+            $oauth2Username = $this->userInfo->getUsername();
+
+            if ($oauth2Username) {
+                $existingUserId = $this->userModel->getIdByUsername($oauth2Username);
+
+                if ($existingUserId) {
+                    $oauth2UserId = $this->userInfo->getExternalId();
+
+                    if ($oauth2UserId) {
+                        if (DEBUG) {
+                            $this->logger->debug(__METHOD__.': The OAuth2 username is: '.$this->userInfo->getUsername());
+                            $this->logger->debug(__METHOD__.': The Existing User ID is: '.$existingUserId);
+                            $this->logger->debug(__METHOD__.': The OAuth2 User ID is: '.$oauth2UserId);
+                        }
+
+                        $this->link($existingUserId, $oauth2UserId);
+                    }
+                }
+            }
+
             return true;
         }
 
@@ -132,6 +153,21 @@ class GenericOAuth2Provider extends Base implements OAuthAuthenticationProviderI
             $this->getUserAPiUrl(),
             array($this->getService()->getAuthorizationHeader())
         );
+    }
+
+    /**
+     * Link user
+     *
+     * @access public
+     * @param  integer $userId
+     * @return bool
+     */
+    public function link($userId, $oauthUserId)
+    {
+        return $this->userModel->update(array(
+            'id' => $userId,
+            'oauth2_user_id' => $oauthUserId,
+        ));
     }
 
     /**
